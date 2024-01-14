@@ -20,6 +20,4 @@ user_one shelke - full name
 user_one - username
 user_one@gmail.com - email and pass same
 
----
 
-These are changes made by Srushti

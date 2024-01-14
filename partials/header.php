@@ -21,6 +21,10 @@ if(isset($_SESSION['user-id'])) {
 
     <!-- ============== CSS Linked ==============  -->
     <link rel="stylesheet" href="./CSS/style.css" />
+        
+    <!-- ============== Tailwind CSS CDN ==============  -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
 
     <!-- ============== ICONSSCOUT CDN ==============  -->
     <link
