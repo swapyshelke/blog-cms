@@ -3,17 +3,39 @@
 ?>
 
 
-<div class="dashboard">
+<section class="dashboard">
 
-<?php if(isset($_SESSION['add-user'])): ?>
+<?php if(isset($_SESSION['add-user-success'])): // shows if add user was successful ?>
 
-<div class="alert__message success">
+ <div class="alert__message success container">
   <p>
-    <?php   
+    <?=   
     $_SESSION['add-user-success'];
     unset($_SESSION['add-user-success']);
     ?>
   </p>
+ </div>
+
+ <?php elseif(isset($_SESSION['edit-user-success'])): // shows if edit user was successful ?>
+
+<div class="alert__message success container">
+ <p>
+   <?=   
+   $_SESSION['edit-user-success'];
+   unset($_SESSION['edit-user-success']);
+   ?>
+ </p>
+</div>
+
+<?php elseif(isset($_SESSION['edit-user'])): // shows if edit user was NOT successful ?>
+
+<div class="alert__message error container">
+ <p>
+   <?=   
+   $_SESSION['edit-user'];
+   unset($_SESSION['edit-user']);
+   ?>
+ </p>
 </div>
 
 <?php endif ?>
@@ -128,7 +150,7 @@
           </table>
         </main>
       </div>
-    </div>
+            </section>
 
 
 <?php  

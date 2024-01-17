@@ -28,7 +28,9 @@
             </li>
 
             <!-- ========================== -->
-            <?php if(isset($_SESSION['user_is_admin'])): ?>
+            <?php 
+            // if(isset($_SESSION['user_is_admin'])): 
+            ?>
             <!-- 3 -->
             <li>
               <a href="add-user.php">
@@ -57,7 +59,9 @@
                 <h5>Manage Category</h5>
               </a>
             </li>
-            <?php endif ?>
+            <?php 
+            // endif 
+            ?>
           </ul>
         </aside>
 

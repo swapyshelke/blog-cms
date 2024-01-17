@@ -42,7 +42,9 @@ if(isset($_SESSION['user-id'])) {
           <li><a href="services.php">Services</a></li>
           <li><a href="contact.php">Contact</a></li>
           <!--  -->
-          <?php if(isset($_SESSION['user-id'])): ?>
+          <?php 
+          if(isset($_SESSION['user-id'])): 
+          ?>
             <!-- if user-d is set that means user is logged-in  -->
 
                <li class="nav__profile">
@@ -57,11 +59,11 @@ if(isset($_SESSION['user-id'])) {
                </ul>
                </li>
                
-               <?php else : ?>
+               <?php                else :                 ?>
 
                <li><a href="signin.php">Sign In</a></li>
 
-               <?php endif ?>
+               <?php                 endif                ?>
         </ul>
 
         <button class="" id="open__nav-btn">
