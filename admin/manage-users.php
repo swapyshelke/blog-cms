@@ -38,6 +38,32 @@
  </p>
 </div>
 
+<!-- =================== -->
+
+<?php elseif(isset($_SESSION['delete-user'])): // shows if delete user was NOT successful ?>
+
+<div class="alert__message error container">
+ <p>
+   <?=   
+   $_SESSION['delete-user'];
+   unset($_SESSION['delete-user']);
+   ?>
+ </p>
+</div>
+
+<!-- =================== -->
+
+<?php elseif(isset($_SESSION['delete-user-success'])): // shows if delete user was successful ?>
+
+<div class="alert__message error container">
+ <p>
+   <?=   
+   $_SESSION['delete-user-success'];
+   unset($_SESSION['delete-user-success']);
+   ?>
+ </p>
+</div>
+
 <?php endif ?>
 
       <div class="container dashboard__container">
