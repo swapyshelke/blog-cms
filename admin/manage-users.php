@@ -127,6 +127,7 @@
 
         <main>
           <h2>Manage Users</h2>
+          <?php if(mysqli_num_rows($users) > 0): ?>
           <table>
             <thead>
               <tr>
@@ -174,6 +175,9 @@
               </tr>
             </tbody>
           </table>
+          <?php else : ?>
+              <div class="alert__message error"> <?= "No users found" ?></div>
+            <?php endif ?>
         </main>
       </div>
             </section>
