@@ -8,6 +8,27 @@
 
 
     <div class="dashboard">
+      <?php if(isset($_SESSION['add-user-success'])) : ?>
+          <div class="alert__message success container">
+            <p>
+              <?= $_SESSION['add-user-success'];
+              unset($_SESSION['add-user-success']);
+              ?>_
+            </p>
+          </div>
+
+          <?php elseif(isset($_SESSION['add-category'])):
+             // show if add category failed
+            ?>
+
+            <div class="alert__message error container">
+              <p>
+                <?= $_SESSION['add-category'];
+                unset($_SESSION['add-category']);
+                ?>
+              </p>
+            </div>
+          <?php endif ?>
       <div class="container dashboard__container">
         <button id="show__sidebar-btn" class="sidebar__toggle">
           <i class="uil uil-angle-right-b">Show</i>

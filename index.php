@@ -12,7 +12,7 @@
     <!--  -->
       <div class="container featured__container">
         <div class="post__thumbnail">
-          <img src="./images/tropical-violet-senset-1639626.jpg" />
+          <!-- <img src="./images/tropical-violet-senset-1639626.jpg" /> -->
         </div>
 
         <!--  -->
@@ -59,7 +59,7 @@
         
         <article class="post">
           <div class="post__thumbnail">
-            <img src="./images/tropical-violet-senset-1639626.jpg" alt="" />
+            <!-- <img src="./images/tropical-violet-senset-1639626.jpg" alt="" /> -->
           </div>
 
           <div class="post__info">
@@ -91,7 +91,7 @@
 
         <article class="post">
           <div class="post__thumbnail">
-            <img src="./images/tropical-violet-senset-1639626.jpg" alt="" />
+            <!-- <img src="./images/tropical-violet-senset-1639626.jpg" alt="" /> -->
           </div>
 
           <div class="post__info">
@@ -123,7 +123,7 @@
 
         <article class="post">
           <div class="post__thumbnail">
-            <img src="./images/tropical-violet-senset-1639626.jpg" alt="" />
+            <!-- <img src="./images/tropical-violet-senset-1639626.jpg" alt="" /> -->
           </div>
 
           <div class="post__info">
@@ -155,7 +155,7 @@
 
         <article class="post">
           <div class="post__thumbnail">
-            <img src="./images/tropical-violet-senset-1639626.jpg" />
+            <!-- <img src="./images/tropical-violet-senset-1639626.jpg" /> -->
           </div>
 
           <div class="post__info">
@@ -187,7 +187,7 @@
 
         <article class="post">
           <div class="post__thumbnail">
-            <img src="./images/tropical-violet-senset-1639626.jpg" alt="" />
+            <!-- <img src="./images/tropical-violet-senset-1639626.jpg" alt="" /> -->
           </div>
 
           <div class="post__info">
@@ -219,7 +219,7 @@
 
         <article class="post">
           <div class="post__thumbnail">
-            <img src="./images/tropical-violet-senset-1639626.jpg" alt="" />
+            <!-- <img src="./images/tropical-violet-senset-1639626.jpg" alt="" /> -->
           </div>
 
           <div class="post__info">
@@ -251,7 +251,7 @@
 
         <article class="post">
           <div class="post__thumbnail">
-            <img src="./images/tropical-violet-senset-1639626.jpg" alt="" />
+            <!-- <img src="./images/tropical-violet-senset-1639626.jpg" alt="" /> -->
           </div>
 
           <div class="post__info">
