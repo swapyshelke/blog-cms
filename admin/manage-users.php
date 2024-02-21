@@ -152,7 +152,7 @@
                 <td><?= $user['username'] ?></td>
                 <td><a href="./edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
                 <td>
-                  <a href="./delete-category.php?id=<?= $user['id'] ?>" class="btn sm danger"
+                  <a href="./delete-user.php?id=<?= $user['id'] ?>" class="btn sm danger"
                     >Delete</a
                   >
                 </td>
