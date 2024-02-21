@@ -17,8 +17,15 @@
             </p>
           </div>
 
-          <?php elseif(isset($_SESSION['add-category'])):
-             // show if add category failed
+          <?php elseif(isset($_SESSION['add-category'])):  // shows if add category was NOT success
+            ?>
+             <div class="alert__message error container">
+              <p>
+                <?= $_SESSION['add-category'];
+                unset($_SESSION['add-category']);
+                ?>
+              </p>
+             </div>
             ?>
 
             <div class="alert__message error container">

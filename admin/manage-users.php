@@ -1,5 +1,11 @@
 <?php  
  include 'partials/header.php';
+
+ // fetch users from database but not current user
+
+ $current_admin_id = $_SESSION['user-id'];
+ $query = "SELECT * FROM users WHERE id != $current_admin_id";
+ $users = mysqli_query($connection, $query);
 ?>
 
 
@@ -7,14 +13,14 @@
 
 <?php if(isset($_SESSION['add-user-success'])): // shows if add user was successful ?>
 
- <div class="alert__message success container">
-  <p>
-    <?=   
-    $_SESSION['add-user-success'];
-    unset($_SESSION['add-user-success']);
-    ?>
-  </p>
- </div>
+      <div class="alert__message success container">
+          <p>
+            <?=   
+            $_SESSION['add-user-success'];
+            unset($_SESSION['add-user-success']);
+            ?>
+          </p>
+      </div>
 
  <?php elseif(isset($_SESSION['edit-user-success'])): // shows if edit user was successful ?>
 
@@ -143,28 +149,6 @@
               <tr>
                 <td>Ernest Achiever</td>
                 <td>achiever</td>
-                <td><a href="edit-user.php" class="btn sm">Edit</a></td>
-                <td>
-                  <a href="delete-category.php" class="btn sm danger"
-                    >Delete</a
-                  >
-                </td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td>Daniel Vinyo</td>
-                <td>Daniel</td>
-                <td><a href="edit-user.php" class="btn sm">Edit</a></td>
-                <td>
-                  <a href="delete-category.php" class="btn sm danger"
-                    >Delete</a
-                  >
-                </td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td>Jane Doe</td>
-                <td>Jane</td>
                 <td><a href="edit-user.php" class="btn sm">Edit</a></td>
                 <td>
                   <a href="delete-category.php" class="btn sm danger"

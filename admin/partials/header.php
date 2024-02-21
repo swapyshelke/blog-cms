@@ -5,7 +5,7 @@ require 'config/database.php';
 
 if(isset($_SESSION['user-id'])) {
   $id = filter_var($_SESSION['user-id'], FILTER_SANITIZE_NUMBER_INT);
-  $query = 'SELECT avatar FROM users WHERE id=1';
+  $query = "SELECT avatar FROM users WHERE id=$id";
   $result = mysqli_query($connection, $query);
   $avatar = mysqli_fetch_assoc($result);
 }
@@ -54,10 +54,10 @@ if(!isset($_SESSION['user-id'])){
                 src="https://unsplash.com/photos/7BbHyuAf1sg"
               /> -->
 
-              <img src="../images" <?php $avatar["avatar"]  ?> alt="">
+              <img src="../images/<?php echo $avatar['avatar'] ?>">
             </div>
             <ul>
-              <li><a href="admin/index.php">Dashboard</a></li>
+              <li><a href="index.php">Dashboard</a></li>
               <li><a href="../signout.php">Logout</a></li>
             </ul>
           </li>

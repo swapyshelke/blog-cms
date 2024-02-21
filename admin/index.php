@@ -29,7 +29,7 @@
 
             <!-- ========================== -->
             <?php 
-            // if(isset($_SESSION['user_is_admin'])): 
+            if(isset($_SESSION['user_is_admin'])): 
             ?>
             <!-- 3 -->
             <li>
@@ -60,7 +60,7 @@
               </a>
             </li>
             <?php 
-            // endif 
+            endif 
             ?>
           </ul>
         </aside>
