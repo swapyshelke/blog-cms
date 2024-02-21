@@ -146,17 +146,19 @@
             </thead>
 
             <tbody>
+              <?php while($user = mysqli_fetch_assoc($users)) : ?>
               <tr>
-                <td>Ernest Achiever</td>
-                <td>achiever</td>
-                <td><a href="edit-user.php" class="btn sm">Edit</a></td>
+                <td><?= "{$user['username']} {$user['lastname']} " ?></td>
+                <td><?= $user['username'] ?></td>
+                <td><a href="./edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
                 <td>
-                  <a href="delete-category.php" class="btn sm danger"
+                  <a href="./delete-category.php?id=<?= $user['id'] ?>" class="btn sm danger"
                     >Delete</a
                   >
                 </td>
-                <td>Yes</td>
+                <td> <?= $user['is_admin'] ? 'Yes' : 'No' ?> </td>
               </tr>
+              <?php endwhile ?>
             </tbody>
           </table>
           <?php else : ?>
