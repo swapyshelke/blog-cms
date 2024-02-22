@@ -9,6 +9,18 @@
 
     <div class="dashboard">
       <?php if(isset($_SESSION['add-user-success'])) : ?>
+
+        <!--  -->
+
+        <div class="alert__message error container">
+              <p>
+                <?= $_SESSION['add-category'];
+                unset($_SESSION['add-category']);
+                ?>
+              </p>
+            </div>
+
+            <!--  -->
           <div class="alert__message success container">
             <p>
               <?= $_SESSION['add-user-success'];
@@ -17,24 +29,37 @@
             </p>
           </div>
 
-          <?php elseif(isset($_SESSION['add-category'])):  // shows if add category was NOT success
+          <?php elseif(isset($_SESSION['edit-category'])):  // shows if edit category was NOT success
             ?>
              <div class="alert__message error container">
               <p>
-                <?= $_SESSION['add-category'];
-                unset($_SESSION['add-category']);
+                <?= $_SESSION['edit-category'];
+                unset($_SESSION['edit-category']);
                 ?>
               </p>
              </div>
-            ?>
 
-            <div class="alert__message error container">
+          <?php elseif(isset($_SESSION['edit-category-success'])):  // shows if edit category was success
+            ?>
+             <div class="alert__message success container">
               <p>
-                <?= $_SESSION['add-category'];
-                unset($_SESSION['add-category']);
+                <?= $_SESSION['edit-category-success'];
+                unset($_SESSION['edit-category-success']);
                 ?>
               </p>
-            </div>
+             </div>
+
+          <?php elseif(isset($_SESSION['delete-category-success'])):  // shows if category is delete
+            ?>
+             <div class="alert__message error container">
+              <p>
+                <?= $_SESSION['delete-category-success'];
+                unset($_SESSION['delete-category-success']);
+                ?>
+              </p>
+             </div>
+
+          
           <?php endif ?>
       <div class="container dashboard__container">
         <button id="show__sidebar-btn" class="sidebar__toggle">
@@ -110,9 +135,9 @@
               <?php while($category = mysqli_fetch_assoc($categories)) : ?>
               <tr>
                 <td><?= $category['title'] ?></td>
-                <td><a href="admin/edit-category.php?id=<?= $category['id'] ?>" class="btn sm">Edit</a></td>
+                <td><a href="edit-category.php?id=<?= $category['id'] ?>" class="btn sm">Edit</a></td>
                 <td>
-                  <a href="dmin/delete-category.php?id=<?= $category['id'] ?>" class="btn sm danger"
+                  <a href="delete-categories.php?id=<?= $category['id'] ?>" class="btn sm danger"
                     >Delete</a
                   >
                 </td>

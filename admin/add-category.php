@@ -3,8 +3,8 @@
  include 'partials/header.php';
 
  // get back form data if invalid
- $title = $_SESSION['add-category-data'] ?? null;
- $description = $_SESSION['add-category-data'] ?? null;
+ $title = $_SESSION['add-category-data']['title'] ?? null;
+ $description = $_SESSION['add-category-data']['description'] ?? null;
 
  unset($_SESSION['add-category-data']);
 ?>
@@ -20,7 +20,7 @@
           </p>
         </div>
           <?php endif ?>
-        <form action="admin/add-category-logic.php" method="POST">
+        <form action="add-category-logic.php" method="POST">
           <input type="text" value="<?= $title ?>" name="title" placeholder="Title" />
           <textarea
           name="description"
@@ -32,15 +32,18 @@
 
           <button type="submit" name="submit" class="btn">Add category</button>
 
-          <div class="form__control">
+          <!--
+             <div class="form__control">
             <label for="avatar">
               <input type="file" id="avatar" />
             </label>
-          </div>
+          </div> 
           <button class="btn" type="submit">Sign In</button>
+        
           <small>
             Don't have an account? <a href="signin.php">Sign In</a>
           </small>
+          -->
         </form>
       </div>
     </section>
