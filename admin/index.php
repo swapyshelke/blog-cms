@@ -42,6 +42,16 @@ $posts = mysqli_query($connection, $query);
               </p>
              </div>
 
+    <?php elseif(isset($_SESSION['delete-post-success'])):  // shows if delete post is successful
+            ?>
+             <div class="alert__message success container">
+              <p>
+                <?= $_SESSION['delete-post-success'];
+                unset($_SESSION['delete-post-success']);
+                ?>
+              </p>
+             </div>
+
       <?php endif ?>
 
 
@@ -136,7 +146,7 @@ $posts = mysqli_query($connection, $query);
                 <td> <?= $category['title'] ?> </td>
                 <td><a href="edit-post.php?id=<?= $post['id'] ?>" class="btn sm">Edit</a></td>
                 <td>
-                  <a href="delete-category.php?id=<?= $post['id'] ?>" class="btn sm danger"
+                  <a href="delete-post.php?id=<?= $post['id'] ?>" class="btn sm danger"
                     >Delete</a
                   >
                 </td>

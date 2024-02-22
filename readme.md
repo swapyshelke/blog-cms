@@ -44,3 +44,5 @@ swapyshelke0@gmail.com
 <!-- ALTER TABLE posts ADD CONSTRAINT FK_blog_author FOREIGN KEY (author_key) REFERENCES users (id) ON DELETE CASCADE; -->
 
 <!-- 6:06:27 -->
+
+<!-- delete posts not working -->
