@@ -35,3 +35,12 @@ swapyshelke0@gmail.com
 
 <!-- a -->
 <!-- Aashay@340 -->
+
+<!-- ALTER TABlE posts ADD CONSTRAINT  fK_blog_category REIGN KEY (category_id) RERENCES categories (id) ON DELETE SET NULL--> 
+<!-- ALTER TABLE posts ADD CONSTRAINT FK_blog_category FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE SET NULL; -->
+
+
+<!-- ALTER TABLE posts ADD CONSTRAINT FK_blog_author FOREIGN KEY (author_key) REFRENCES users (id) ON DELETE CASCADE; -->
+<!-- ALTER TABLE posts ADD CONSTRAINT FK_blog_author FOREIGN KEY (author_key) REFERENCES users (id) ON DELETE CASCADE; -->
+
+<!-- 6:06:27 -->
