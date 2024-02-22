@@ -2,97 +2,101 @@
 
 include 'partials/header.php' ;
 
+// fetch category from database based on id
+if(isset($_GET['id'])){
+  $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+  $query = "SELECT * FROM posts WHERE category_id=$id ORDER BY date_time DESC";
+  $posts = mysqli_query($connection, $query);
+  $category = mysqli_fetch_assoc($posts);
+} else {
+  header('location:blog.php');
+  die();
+}
+
 ?>
 
     <header class="category__title">
-      <h2>Category Title</h2>
+      
+   <h2>
+   <?php  
+           // fetch categories from cateries table using category_id of post
+           $category_id = $id;
+           $category_query = "SELECT * FROM categories WHERE id = $id";
+           $category_result = mysqli_query($connection, $category_query);
+           $category = mysqli_fetch_assoc($category_result);
+           $category_title = $category['title'];
+           echo $category_title;
+          ?>
+   </h2>
     </header>
 
     <!-- ================ End of Category Title  ================ -->
 
-    <!-- ================ Featured start  ================ -->
-
-    <!-- ================ END OF FEATURED  ================ -->
-
+<?php if(mysqli_num_rows($posts) > 0) : ?>
     <section class="posts">
       <div class="container posts__container">
+        <?php while($post = mysqli_fetch_assoc($posts)) : ?>
         <article class="post">
           <div class="post__thumbnail">
-            <img src="./images/tropical-violet-senset-1639626.jpg" alt="" />
+            <img src="./images/<?= $post['thumbnail'] ?>" />
           </div>
 
           <div class="post__info">
-            <a href="./category-posts.html" class="category__button"
-              >Wild Life</a
-            >
+<!--  -->
             <h3 class="post__title">
-              <a href="post.html"
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi, quidem!</a
+              <a href="post.php?id=<?= $post['id'] ?>"
+                ><?= $post['title'] ?></a
               >
             </h3>
             <p class="post__body">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-              et pariatur error commodi facere eligendi?
+            <?= substr($post['body'], 0, 150); ?>...
             </p>
             <div class="post__author">
+            <?php
+              // fetch author from users table using author_id of post
+              $author_id = $post['author_id'];
+              $author_query = "SELECT * FROM users WHERE id = $author_id";
+              $author_result = mysqli_query($connection, $author_query);
+              $author = mysqli_fetch_assoc($author_result);
+              // $author_name = $author['username'];
+            ?>
               <div class="post__author-avatar">
-                <img src="./images/tropical-violet-senset-1639626.jpg" alt="" />
+                <img src="./images/<?= $author['avatar'] ?>" alt="" />
               </div>
 
               <div class="post__author-info">
-                <h5>By: John Mills</h5>
-                <small>June 13, 2022 - 10:34</small>
+              <h5>By:  <?=  "{$author['username'] } {$author['lastname']}" ?> </h5>
+                <small> <?= date("M d, Y - H:i" ,  strtotime($post['date_time'])); ?></small>
               </div>
             </div>
           </div>
         </article>
-        <article class="post">
-          <div class="post__thumbnail">
-            <img src="./images/tropical-violet-senset-1639626.jpg" alt="" />
-          </div>
 
-          <div class="post__info">
-            <a href="./category-posts.html" class="category__button"
-              >Wild Life</a
-            >
-            <h3 class="post__title">
-              <a href="post.html"
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi, quidem!</a
-              >
-            </h3>
-            <p class="post__body">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-              et pariatur error commodi facere eligendi?
-            </p>
-            <div class="post__author">
-              <div class="post__author-avatar">
-                <img src="./images/tropical-violet-senset-1639626.jpg" alt="" />
-              </div>
+       <?php endwhile ?>
 
-              <div class="post__author-info">
-                <h5>By: John Mills</h5>
-                <small>June 13, 2022 - 10:34</small>
-              </div>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
+<?php else : ?>
 
+    <div class="alert__message error lg">
+      <h5>No posts found in this category</h5>
+      <a href="blog.php" class="btn btn__primary">Browse all posts</a>
+    </div>
+<?php endif ?>
     <!-- ================ END OF POSTS  ================ -->
 
     <section class="category__buttons">
-      <div class="container category__buttons-container">
-        <a href="" class="category__button">Art</a>
-        <a href="" class="category__button">Wild Life</a>
-        <a href="" class="category__button">Travel</a>
-        <a href="" class="category__button">Sci & Tech</a>
-        <a href="" class="category__button">Food</a>
-        <a href="" class="category__button">Music</a>
-      </div>
-    </section>
+
+<div class="container category__buttons-container">
+  <?php
+    $all_categories_query = "SELECT * FROM categories";
+    $all_categories = mysqli_query($connection, $all_categories_query);
+  ?>
+  <?php while($category = mysqli_fetch_assoc($all_categories)) : ?>
+  <a href="category-posts.php?id=<?= $category['id'] ?>" class="category__button"><?= $category['title'] ?></a>
+  <?php endwhile ?>
+</div>
+</section>
 
     <!-- ================ END OF CATEDORY BUTTONS ================ -->
 

@@ -38,10 +38,11 @@
            $category_result = mysqli_query($connection, $category_query);
            $category = mysqli_fetch_assoc($category_result);
            $category_title = $category['title'];
+           $category_id = $category['id'];
           ?>
-          <a href="category-posts.php?id=<?= $category_id ?>" class="category__button"><?=  $category_title  ?></a>
+          <a href="category-posts.php?id=<?=     $category_id  ?>" class="category__button"><?=  $category_title  ?></a>
           <h2 class="post__title">
-            <a href="post.php?id=<?= $featured['category_id'] ?>"> <?= $featured['title'] ?> </a
+            <a href="post.php?id=<?=     $category_id ?>"> <?= $featured['title'] ?> </a
             >
           </h2>
           <p class="post__body">
@@ -81,7 +82,7 @@
     <!-- ================ START OF POSTS  ================ -->
 
 
-    <section class="posts">
+    <section class="posts  <?= $featured ? '' : 'section__extra-margin'  ?>">
       <div class="container posts__container">
         <?php while($post = mysqli_fetch_assoc($posts)) : ?>
         <article class="post">
@@ -103,7 +104,7 @@
               ><?= $category_title ?></a
             >
             <h3 class="post__title">
-              <a href="post.html"
+              <a href="post.php?id=<?= $post['id'] ?>"
                 ><?= $post['title'] ?></a
               >
             </h3>
@@ -136,9 +137,9 @@
       </div>
     </section>
 
-    <!-- ================ END OF POSTS  ================ -->
+    <!-- ================  END OF POSTS  ================ -->
 
-    <!-- ================ END OF CATEDORY BUTTONS ================ -->
+    <!-- ================ start OF CATEDORY BUTTONS ================ -->
 
 
     <section class="category__buttons">
