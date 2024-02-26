@@ -4,8 +4,8 @@ require 'config/database.php';
 if(isset($_POST['id'])) {
     $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
 
-    // fetch post from database in order to delete thumbnails
-    $query = "DELETE FROM posts WHERE id=$id";
+    // fetch post from database in order to delete thumbnails from images folder
+    $query = "SELECT * FROM posts WHERE id=$id";
     $result = mysqli_query($connection, $query);
 
     // make sure only 1 record / post was deleted
