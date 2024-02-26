@@ -3,7 +3,7 @@
 include 'partials/header.php' ;
 
   // fetch 9 posts from database
-  $query = "SELECT * FROM posts ORDER BY date_time DESC";
+  $query = "SELECT * FROM posts ORDER BY date_time ";
   $posts = mysqli_query($connection, $query);
 
 ?>

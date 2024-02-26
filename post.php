@@ -23,9 +23,9 @@ if(isset($_GET['id'])){
 
 <section class="singlepost">
       <div class="container singlepost__container">
-        <h2>
-         <?php $post['title'] ?>
-        </h2>
+      <div class="singlepost__info">
+          <h2><?= $post['title'] ?></h2>
+        </div>
         <div class="post__author">
             <?php
               // fetch author from users table using author_id of post
@@ -48,6 +48,8 @@ if(isset($_GET['id'])){
         <div class="singlepost__thumbnail">
           <img src="./images/<?= $post['thumbnail'] ?>" alt="" />
         </div>
+
+     
 
     <p><?= $post['body'] ?></p>
       

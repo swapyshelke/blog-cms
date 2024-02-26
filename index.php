@@ -37,13 +37,10 @@
            $category_query = "SELECT * FROM categories WHERE id = $category_id";
            $category_result = mysqli_query($connection, $category_query);
            $category = mysqli_fetch_assoc($category_result);
-           $category_title = $category['title'];
-           $category_id = $category['id'];
           ?>
-          <a href="category-posts.php?id=<?=     $category_id  ?>" class="category__button"><?=  $category_title  ?></a>
+          <a href="category-posts.php?id=<?=$featured['category_id']?>" class="category__button"><?=$category['title']?></a>
           <h2 class="post__title">
-            <a href="post.php?id=<?=     $category_id ?>"> <?= $featured['title'] ?> </a
-            >
+            <a href="post.php?id=<?=$featured['id']?>"> <?= $featured['title'] ?> </a>
           </h2>
           <p class="post__body">
             <?= substr($featured['body'], 0, 300); ?>...
@@ -97,11 +94,10 @@
            $category_query = "SELECT * FROM categories WHERE id = $category_id";
            $category_result = mysqli_query($connection, $category_query);
            $category = mysqli_fetch_assoc($category_result);
-           $category_title = $category['title'];
           ?>
 
             <a href="category-posts.php?id=<?= $post['category_id'] ?>" class="category__button"
-              ><?= $category_title ?></a
+              ><?= $category['title'] ?></a
             >
             <h3 class="post__title">
               <a href="post.php?id=<?= $post['id'] ?>"
